@@ -1,508 +1,242 @@
 <!DOCTYPE html>
-<!-- saved from url=(0094)file:///C:/Users/saikatl/Downloads/ICONIQ%20The_AI_Builders_Playbook_2025_ShortBook%20(2).html -->
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2025 State of AI Report - The Builder's Playbook</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="./2025 State of AI Report - The Builder&#39;s Playbook_files/saved_resource"></script>
-    <link href="./2025 State of AI Report - The Builder&#39;s Playbook_files/css2" rel="stylesheet">
+    <title>My URL Repository</title>
+    <!-- Tailwind CSS CDN for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
+        /* Custom styles for the scrollbar to make it more aesthetically pleasing */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f0f0f0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            padding: 20px;
-            box-sizing: border-box;
-        }
-
-        .book-container {
-            background-color: #ffffff;
-            border-radius: 12px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.07);
-            max-width: 900px;
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .book-header {
-            background-color: #2c3e50;
-            color: #ffffff;
-            padding: 1.5rem;
-            border-top-left-radius: 12px;
-            border-top-right-radius: 12px;
-            text-align: center;
-        }
-
-        .book-header h1 {
-            font-size: 2.25rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
-
-        .book-header p {
-            font-size: 1.125rem;
-            opacity: 0.9;
-        }
-
-        .book-content {
-            padding: 2rem;
-            flex-grow: 1;
-            position: relative;
-            min-height: 500px; /* Ensure content area has a minimum height */
-        }
-
-        .chapter {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
-            position: absolute;
-            top: 2rem;
-            left: 2rem;
-            right: 2rem;
-            bottom: 2rem;
-            overflow-y: auto; /* Enable scrolling for long chapters */
-            padding-right: 15px; /* Space for scrollbar */
-        }
-
-        .chapter.active {
-            opacity: 1;
-            transform: translateY(0);
-            position: relative; /* Set active chapter to relative to take up space */
-        }
-
-        .chapter h2 {
-            font-size: 1.75rem;
-            font-weight: 600;
-            color: #2c3e50;
-            margin-bottom: 1.25rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid #e0e0e0;
-        }
-
-        .chapter h3 {
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: #34495e;
-            margin-top: 1.5rem;
-            margin-bottom: 0.75rem;
-        }
-
-        .chapter p, .chapter ul {
-            font-size: 1rem;
-            line-height: 1.6;
-            color: #333;
-            margin-bottom: 1rem;
-        }
-
-        .chapter ul {
-            list-style-type: disc;
-            padding-left: 1.5rem;
-        }
-
-        .chapter li {
-            margin-bottom: 0.5rem;
-        }
-
-        .navigation {
-            display: flex;
-            justify-content: space-between;
-            padding: 1.5rem;
-            background-color: #f8f8f8;
-            border-bottom-left-radius: 12px;
-            border-bottom-right-radius: 12px;
-            border-top: 1px solid #eee;
-        }
-
-        .nav-button {
-            background-color: #3498db;
-            color: white;
-            padding: 0.75rem 1.5rem;
-            border-radius: 8px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .nav-button:hover {
-            background-color: #2980b9;
-            transform: translateY(-2px);
-        }
-
-        .nav-button:disabled {
-            background-color: #cccccc;
-            cursor: not-allowed;
-            box-shadow: none;
-            transform: none;
-        }
-
-        .page-number {
-            align-self: center;
-            font-size: 1rem;
-            color: #555;
-            font-weight: 500;
-        }
-
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            .book-header h1 {
-                font-size: 1.75rem;
-            }
-            .book-header p {
-                font-size: 1rem;
-            }
-            .book-content {
-                padding: 1.5rem;
-            }
-            .chapter {
-                top: 1.5rem;
-                left: 1.5rem;
-                right: 1.5rem;
-                bottom: 1.5rem;
-            }
-            .navigation {
-                flex-direction: column;
-                gap: 1rem;
-                padding: 1rem;
-            }
-            .nav-button {
-                width: 100%;
-                justify-content: center;
-                padding: 0.6rem 1rem;
-            }
-            .page-number {
-                order: -1; /* Move page number to top on mobile */
-                margin-bottom: 0.5rem;
-            }
         }
     </style>
-<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.16 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}</style></head>
-<body>
-    <div class="book-container">
-        <div class="book-header">
-            <h1>2025 State of AI Report</h1>
-            <p>The Builder's Playbook by ICONIQ Capital, LLC</p>
+</head>
+<body class="bg-gradient-to-br from-blue-100 to-purple-100 min-h-screen flex items-center justify-center p-4">
+
+    <div class="bg-white p-8 rounded-xl shadow-2xl w-full max-w-2xl transform transition-all duration-300 hover:scale-[1.01]">
+        <h1 class="text-4xl font-extrabold text-center text-gray-800 mb-8 tracking-tight">
+            🔗 My Personal Link Hub
+        </h1>
+
+        <div class="mb-8 p-6 bg-blue-50 rounded-lg border border-blue-200 shadow-inner">
+            <h2 class="text-2xl font-semibold text-gray-700 mb-4">Add New Link</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                <input
+                    type="text"
+                    id="linkName"
+                    placeholder="Link Name (e.g., Google, My Blog)"
+                    class="p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 transition duration-200 outline-none"
+                    aria-label="Link Name Input"
+                >
+                <input
+                    type="url"
+                    id="linkUrl"
+                    placeholder="URL (e.g., https://www.google.com)"
+                    class="p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 transition duration-200 outline-none"
+                    aria-label="Link URL Input"
+                >
+            </div>
+            <button
+                id="addLinkBtn"
+                class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-[1.02] active:scale-95 focus:outline-none focus:ring-4 focus:ring-blue-300"
+                aria-label="Add Link Button"
+            >
+                ➕ Add Link
+            </button>
+            <div id="messageBox" class="mt-4 text-center text-sm font-medium hidden"></div>
         </div>
 
-        <div class="book-content">
-            <div id="chapter-0" class="chapter active">
-                <h2>Introduction</h2>
-                <p>
-                    The "2025 State of AI Report" by ICONIQ Capital, LLC, also known as "The Builder's Playbook,"
-                    focuses on the practical aspects of conceiving, delivering, and scaling AI-powered offerings end-to-end.
-                    This report pivots from last year's focus on the buying journey and enterprise adoption to provide a
-                    "how-to" guide for architects, engineers, and product leaders in AI.
-                </p>
-                <p>
-                    The report draws on proprietary survey results from April 2025, involving 300 executives at software
-                    companies building AI products, including CEOs, Heads of Engineering, Heads of AI, and Heads of Product.
-                    It also incorporates insights and best practices from AI leaders within the ICONIQ community.
-                </p>
-                <p>
-                    Here are the key takeaways from the report, organized by core dimensions of the builder's playbook:
-                </p>
+        <div>
+            <h2 class="text-2xl font-semibold text-gray-700 mb-4">My Saved Links</h2>
+            <div id="linksContainer" class="space-y-4 max-h-96 overflow-y-auto pr-2">
+                <!-- Links will be rendered here by JavaScript -->
+                <p id="noLinksMessage" class="text-gray-500 text-center italic">No links yet. Add some above!</p>
             </div>
-
-            <div id="chapter-1" class="chapter">
-                <h2>1. AI Product Roadmap &amp; Architecture</h2>
-                <h3>AI-Native companies are advancing faster:</h3>
-                <ul>
-                    <li>AI-native companies, whose core product or business model is AI-driven, are further along in their development cycle.</li>
-                    <li>Approximately 47% of AI-native products have reached critical scale and proven market fit, compared to AI-enabled companies that embed AI features into existing offerings.</li>
-                    <li>Only 1% of AI-native companies are still in pre-launch, contrasting with 11% of AI-enabled companies.</li>
-                </ul>
-                <h3>Agentic workflows are prevalent:</h3>
-                <ul>
-                    <li>Agentic workflows and the application layer are the most common types of AI products being built across both AI-native (79%) and AI-enabled (65%) companies.</li>
-                </ul>
-                <h3>Model Usage:</h3>
-                <ul>
-                    <li>Most companies building AI applications use third-party AI APIs (80%).</li>
-                    <li>However, a larger proportion of high-growth companies (77%) are also fine-tuning existing foundation models and developing proprietary models from scratch (54%).</li>
-                </ul>
-                <h3>Prioritization for Foundational Models:</h3>
-                <ul>
-                    <li>When choosing foundational models for customer-facing use cases, companies prioritize model accuracy (74%) above all other factors.</li>
-                    <li>Cost has become a much higher consideration this year, reflecting commoditization in the model layer.</li>
-                    <li>For internal use cases, cost (72%) and privacy (74%) are the most important considerations, followed by accuracy (50%).</li>
-                </ul>
-                <h3>Multi-Model Approach:</h3>
-                <ul>
-                    <li>OpenAI's GPT models remain the most popular (95%), but many companies are increasingly adopting a multi-model approach (average 2.8 models per respondent) to optimize for various use cases, performance, cost, and customer requirements.</li>
-                </ul>
-                <h3>Model Training Techniques:</h3>
-                <ul>
-                    <li>Retrieval Augmented Generation (RAG) (66%) and fine-tuning (68%) are the most common model training techniques.</li>
-                    <li>High-growth companies tend to use a greater variety of prompt-based techniques like few-shot (49%) and zero-shot learning (25%).</li>
-                </ul>
-                <h3>AI Infrastructure:</h3>
-                <ul>
-                    <li>Most companies rely on fully cloud-based solutions (68%) and external AI API providers (64%) for training and inference, minimizing upfront capital outlay and maximizing speed-to-market.</li>
-                    <li>Only a small percentage use hybrid (23%) or fully on-premise infrastructure (10%).</li>
-                </ul>
-                <h3>Deployment Challenges:</h3>
-                <ul>
-                    <li>Top challenges for deploying models include hallucinations (39%), explainability/trust (38%), and proving ROI (34%).</li>
-                    <li>For internal use cases, strategic challenges like finding the right use cases (46%) and proving ROI (42%) are more significant than technical ones.</li>
-                </ul>
-                <h3>Performance Monitoring:</h3>
-                <ul>
-                    <li>As AI products scale, performance monitoring becomes crucial.</li>
-                    <li>A significant percentage of scaled products (General Availability and Scaling stages) offer advanced (59%, 64%) or fully automated (31%, 44%) performance monitoring.</li>
-                </ul>
-                <h3>Agentic Workflows Adoption:</h3>
-                <ul>
-                    <li>A significant number of companies are evaluating agentic workflows, with high-growth AI companies (47%) more actively deploying AI agents in production compared to other companies (23%).</li>
-                </ul>
-            </div>
-
-            <div id="chapter-2" class="chapter">
-                <h2>2. Go-to-Market Strategy &amp; Compliance</h2>
-                <h3>AI Feature Integration:</h3>
-                <ul>
-                    <li>For AI-enabled companies, 20-35% of their product roadmap focuses on AI-driven features, with high-growth companies dedicating closer to 30-45%.</li>
-                </ul>
-                <h3>Pricing Models:</h3>
-                <ul>
-                    <li>Many companies use a hybrid pricing model (38%), combining subscription/plan-based pricing with usage-based or outcome-based pricing.</li>
-                    <li>Currently, most AI-enabled companies include AI features as part of a premium tier product (40%) or at no extra cost (33%).</li>
-                </ul>
-                <h3>Future Pricing Changes:</h3>
-                <ul>
-                    <li>While 40% of companies have no plans to change pricing, 37% are exploring new pricing models based on consumption, ROI, and usage tiers.</li>
-                    <li>This shift is expected as companies build telemetry on AI usage and ROI to avoid margin compression.</li>
-                </ul>
-                <h3>Explainability &amp; Transparency:</h3>
-                <ul>
-                    <li>As AI products scale, providing detailed model transparency reports or basic insights on how AI influences outcomes becomes more critical.</li>
-                    <li>For products in General Availability or Scaling, a higher percentage offer basic insights (58%, 47%) or detailed reports (17%, 25%).</li>
-                </ul>
-                <h3>Compliance and Governance:</h3>
-                <ul>
-                    <li>Most companies have guardrails around AI ethics and governance policies (47% formal policies).</li>
-                    <li>The majority (66%) use human-in-the-loop oversight to ensure AI fairness and safety.</li>
-                </ul>
-            </div>
-
-            <div id="chapter-3" class="chapter">
-                <h2>3. People &amp; Talent</h2>
-                <h3>Dedicated AI Leadership:</h3>
-                <ul>
-                    <li>Many companies, especially those reaching $100M+ in revenue, have dedicated AI leadership (e.g., Chief AI Officers, Head of ML) due to increasing operational complexity.</li>
-                </ul>
-                <h3>AI-Specific Roles:</h3>
-                <ul>
-                    <li>Most companies have dedicated AI/ML engineers (88%), data scientists (72%), and AI product managers (54%).</li>
-                    <li>AI/ML engineers take the longest time to hire (70 days on average).</li>
-                </ul>
-                <h3>Pace of Hiring:</h3>
-                <ul>
-                    <li>There's an even split in sentiment regarding hiring pace.</li>
-                    <li>For those not hiring fast enough, the primary constraint is a lack of qualified candidates (60%), followed by cost constraints (35%).</li>
-                </ul>
-                <h3>Engineering Team Focus:</h3>
-                <ul>
-                    <li>Companies plan to have 20-30% of their engineering team focused on AI by 2025, with high-growth companies dedicating a higher proportion (37% by 2026).</li>
-                </ul>
-            </div>
-
-            <div id="chapter-4" class="chapter">
-                <h2>4. Cost Management &amp; ROI</h2>
-                <h3>AI Development Spend:</h3>
-                <ul>
-                    <li>Companies are allocating, on average, 10-20% of their total R&amp;D budget to AI development, with most planning to increase this spend in 2025.</li>
-                </ul>
-                <h3>Budget Allocation Shift:</h3>
-                <ul>
-                    <li>As AI products scale, AI talent costs tend to decrease as a proportion of total spend, while infrastructure and compute costs tend to increase.</li>
-                </ul>
-                <h3>Challenging Infrastructure Costs:</h3>
-                <ul>
-                    <li>API usage fees (70%) are cited as the most challenging infrastructure cost to control, indicating unpredictability around variable costs tied to external API consumption.</li>
-                </ul>
-                <h3>Cost Optimization:</h3>
-                <ul>
-                    <li>To cut AI infrastructure costs, organizations are exploring open-source models (41%) and optimizing inference efficiency (37%).</li>
-                </ul>
-                <h3>Escalating Costs Post-Launch:</h3>
-                <ul>
-                    <li>Inference costs surge post-launch, with high-growth AI companies spending up to 2x more at General Availability (GA) and scaling stages than their peers.</li>
-                    <li>Data storage and processing costs also climb steeply from the GA stage onward.</li>
-                </ul>
-                <h3>Internal Productivity Budget:</h3>
-                <ul>
-                    <li>Internal AI productivity budgets are expected to nearly double in 2025 across all revenue tiers, representing 1-8% of total revenue.</li>
-                    <li>R&amp;D budgets remain the most common source (59%), but headcount budgets are also being used.</li>
-                </ul>
-                <h3>Tracking ROI:</h3>
-                <ul>
-                    <li>Most companies are measuring productivity improvements (75%) and cost savings (51%) from internal AI use.</li>
-                </ul>
-            </div>
-
-            <div id="chapter-5" class="chapter">
-                <h2>5. Internal Productivity &amp; Operations</h2>
-                <h3>AI Access and Usage:</h3>
-                <ul>
-                    <li>While around 70% of employees have access to AI tools for internal productivity, only about 50% are using them on an ongoing basis.</li>
-                    <li>Adoption is more difficult in mature enterprises ($1B+ revenue).</li>
-                </ul>
-                <h3>Number of Use Cases:</h3>
-                <ul>
-                    <li>Companies typically explore multiple GenAI use cases.</li>
-                    <li>Companies with high employee adoption (greater than 50% active users) use GenAI across 7+ use cases.</li>
-                </ul>
-                <h3>Top Use Cases:</h3>
-                <ul>
-                    <li>R&amp;D (77%) and Sales &amp; Marketing (S&amp;M) (65%) use cases lead in popularity.</li>
-                </ul>
-                <h3>Impactful Use Cases:</h3>
-                <ul>
-                    <li>Coding assistance (65%) by far outpaces other use cases in terms of tangible impact on productivity, with respondents citing an average productivity gain of 15-30% across GenAI use cases.</li>
-                    <li>High-growth companies see an average of 33% of their total code written with AI, compared to 27% for others.</li>
-                </ul>
-                <h3>Attitude Towards Adoption:</h3>
-                <ul>
-                    <li>High-growth companies actively experiment with and adopt new AI tools (92%), viewing AI as a strategic lever and moving faster to integrate it across internal workflows.</li>
-                </ul>
-            </div>
-
-            <div id="chapter-6" class="chapter">
-                <h2>AI Builder Tech Stack</h2>
-                <p>The report also provides key takeaways regarding the most used tools across various categories:</p>
-                <h3>Model Training &amp; Finetuning:</h3>
-                <ul>
-                    <li>Core deep-learning frameworks like PyTorch and TensorFlow are popular, nearly matched by fully managed or API-driven offerings like AWS SageMaker and OpenAI's fine-tuning service.</li>
-                    <li>Hugging Face and Databricks' Mosaic AI Training are gaining traction.</li>
-                </ul>
-                <h3>LLM &amp; AI Application Development:</h3>
-                <ul>
-                    <li>LangChain and Hugging Face's toolset are top frameworks, simplifying prompt chaining and interfacing with models.</li>
-                    <li>Around 70% of respondents use private or custom LLM APIs.</li>
-                    <li>Guardrails and Vercel’s AI SDK are gaining traction for safety checks and rapid deployment.</li>
-                </ul>
-                <h3>Monitoring &amp; Observability:</h3>
-                <ul>
-                    <li>Nearly half of teams use existing APM/logging stacks (e.g., Datadog).</li>
-                    <li>LangSmith and Weights &amp; Biases have gained traction as ML-native platforms.</li>
-                </ul>
-                <h3>Inference Optimization:</h3>
-                <ul>
-                    <li>NVIDIA's TensorRT and Triton Inference Server dominate (over 60% adoption) for GPU-based deployments.</li>
-                    <li>ONNX Runtime (18%) and TorchServe (15%) are cross-platform alternatives.</li>
-                </ul>
-                <h3>Model Hosting:</h3>
-                <ul>
-                    <li>The majority of teams call model hosts directly via providers like OpenAI and Anthropic.</li>
-                    <li>Hyperscalers like AWS Bedrock and Google Vertex AI have substantial share, especially among later-stage companies.</li>
-                </ul>
-                <h3>Model Evaluation:</h3>
-                <ul>
-                    <li>No clear standalone leader exists; nearly 1 in 4 teams use built-in evaluation features from platforms like Vertex or Weights &amp; Biases.</li>
-                    <li>LangSmith and Langfuse lead among purpose-built evaluation tools.</li>
-                </ul>
-                <h3>Data Processing &amp; Feature Engineering:</h3>
-                <ul>
-                    <li>Classic big data tools like Apache Spark (44%) and Kafka (42%) dominate for ETL and real-time data ingestion.</li>
-                    <li>Python's Pandas (41%) remains indispensable for smaller datasets.</li>
-                </ul>
-                <h3>Vector Databases:</h3>
-                <ul>
-                    <li>Elastic and Pinecone lead adoption. Redis is popular for leveraging existing in-memory data stores.</li>
-                    <li>Open-source solutions like Chroma and Weaviate are gaining ground.</li>
-                </ul>
-                <h3>Synthetic Data &amp; Data Augmentation:</h3>
-                <ul>
-                    <li>Over half of teams (52%) build their own tooling. Scale AI (21%) is the clear vendor leader.</li>
-                </ul>
-                <h3>Coding Assistance:</h3>
-                <ul>
-                    <li>GitHub Copilot is used by nearly three-quarters of development teams. Cursor is a strong second (50%).</li>
-                </ul>
-                <h3>DevOps &amp; MLOps:</h3>
-                <ul>
-                    <li>MLflow (36%) is the frontrunner for experiment tracking and model registry, followed by Weights &amp; Biases (20%).</li>
-                </ul>
-                <h3>Product &amp; Design:</h3>
-                <ul>
-                    <li>Figma (87%) is the de-facto standard for UI/UX and product design. Miro (37%) is used for higher-level collaboration.</li>
-                    <li>Many are using low/no-code solutions for rapid prototyping.</li>
-                </ul>
-                <h3>Internal Productivity Use Cases (Specific Trends):</h3>
-                <ul>
-                    <li>Many teams leverage embedded AI features within existing platforms like Salesforce for sales productivity and Zendesk/Salesforce for customer engagement.</li>
-                    <li>Canva is dominant for marketing content.</li>
-                    <li>For documentation, teams build on existing wikis or use Notion, with purpose-built AI tools like Glean gaining traction.</li>
-                    <li>ServiceNow and Snyk lead for IT &amp; Security.</li>
-                    <li>Legal departments use ChatGPT and ad hoc scripts.</li>
-                    <li>LinkedIn’s built-in AI features are popular for HR &amp; recruiting.</li>
-                    <li>Ramp, Pigment, Basis, and Tabs are used for FP&amp;A automation.</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="navigation">
-            <button id="prevBtn" class="nav-button" disabled="">← Previous Chapter</button>
-            <span id="pageNumber" class="page-number">Chapter 1 of 7</span>
-            <button id="nextBtn" class="nav-button">Next Chapter →</button>
         </div>
     </div>
 
     <script>
-        const chapters = document.querySelectorAll('.chapter');
-        const prevBtn = document.getElementById('prevBtn');
-        const nextBtn = document.getElementById('nextBtn');
-        const pageNumberSpan = document.getElementById('pageNumber');
-        let currentChapterIndex = 0;
+        // Get references to HTML elements
+        const linkNameInput = document.getElementById('linkName');
+        const linkUrlInput = document.getElementById('linkUrl');
+        const addLinkBtn = document.getElementById('addLinkBtn');
+        const linksContainer = document.getElementById('linksContainer');
+        const noLinksMessage = document.getElementById('noLinksMessage');
+        const messageBox = document.getElementById('messageBox');
 
-        // Function to show the current chapter and update navigation
-        function showChapter(index) {
-            chapters.forEach((chapter, i) => {
-                chapter.classList.remove('active');
-                if (i === index) {
-                    chapter.classList.add('active');
-                }
-            });
+        // Array to store URL objects
+        let links = [];
 
-            // Update button states
-            prevBtn.disabled = index === 0;
-            nextBtn.disabled = index === chapters.length - 1;
-
-            // Update page number
-            pageNumberSpan.textContent = `Chapter ${index + 1} of ${chapters.length}`;
+        /**
+         * Displays a temporary message to the user.
+         * @param {string} message - The message to display.
+         * @param {string} type - The type of message ('success', 'error', 'info').
+         */
+        function showMessage(message, type) {
+            messageBox.textContent = message;
+            messageBox.className = 'mt-4 text-center text-sm font-medium block'; // Reset classes
+            if (type === 'success') {
+                messageBox.classList.add('text-green-700', 'bg-green-100', 'p-2', 'rounded-md');
+            } else if (type === 'error') {
+                messageBox.classList.add('text-red-700', 'bg-red-100', 'p-2', 'rounded-md');
+            } else { // Default to info
+                messageBox.classList.add('text-gray-700', 'bg-gray-100', 'p-2', 'rounded-md');
+            }
+            setTimeout(() => {
+                messageBox.classList.add('hidden');
+            }, 3000); // Hide after 3 seconds
         }
 
-        // Event listener for Previous button
-        prevBtn.addEventListener('click', () => {
-            if (currentChapterIndex > 0) {
-                currentChapterIndex--;
-                showChapter(currentChapterIndex);
+        /**
+         * Loads links from local storage.
+         */
+        function loadLinks() {
+            const storedLinks = localStorage.getItem('urlRepositoryLinks');
+            if (storedLinks) {
+                links = JSON.parse(storedLinks);
+            }
+        }
+
+        /**
+         * Saves links to local storage.
+         */
+        function saveLinks() {
+            localStorage.setItem('urlRepositoryLinks', JSON.stringify(links));
+        }
+
+        /**
+         * Renders all links in the UI.
+         */
+        function renderLinks() {
+            // Clear existing links
+            linksContainer.innerHTML = '';
+
+            if (links.length === 0) {
+                noLinksMessage.classList.remove('hidden');
+                linksContainer.appendChild(noLinksMessage);
+            } else {
+                noLinksMessage.classList.add('hidden');
+                links.forEach(link => {
+                    // Create a div for each link item
+                    const linkItem = document.createElement('div');
+                    linkItem.className = 'flex items-center justify-between bg-gray-50 p-4 rounded-lg shadow-sm border border-gray-200 transition duration-200 ease-in-out hover:bg-gray-100';
+                    linkItem.setAttribute('data-id', link.id); // Store ID for easy deletion
+
+                    // Create the link itself
+                    const linkAnchor = document.createElement('a');
+                    linkAnchor.href = link.url;
+                    linkAnchor.target = '_blank'; // Open in new tab
+                    linkAnchor.rel = 'noopener noreferrer'; // Security best practice
+                    linkAnchor.className = 'text-blue-600 hover:text-blue-800 text-lg font-medium flex-grow truncate mr-4';
+                    linkAnchor.textContent = link.name;
+                    linkAnchor.setAttribute('aria-label', `Open ${link.name}`);
+
+                    // Create the delete button
+                    const deleteButton = document.createElement('button');
+                    deleteButton.className = 'bg-red-500 hover:bg-red-600 text-white text-sm font-semibold py-2 px-3 rounded-md shadow-sm transition duration-200 ease-in-out transform hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-red-300';
+                    deleteButton.textContent = 'Delete';
+                    deleteButton.setAttribute('aria-label', `Delete ${link.name}`);
+                    deleteButton.onclick = () => deleteLink(link.id); // Attach click handler
+
+                    // Append elements to the link item
+                    linkItem.appendChild(linkAnchor);
+                    linkItem.appendChild(deleteButton);
+
+                    // Append the link item to the container
+                    linksContainer.appendChild(linkItem);
+                });
+            }
+        }
+
+        /**
+         * Adds a new link to the list.
+         */
+        function addLink() {
+            const name = linkNameInput.value.trim();
+            const url = linkUrlInput.value.trim();
+
+            if (!name || !url) {
+                showMessage('Please enter both link name and URL.', 'error');
+                return;
+            }
+
+            // Basic URL validation
+            try {
+                new URL(url); // Check if it's a valid URL format
+            } catch (e) {
+                showMessage('Please enter a valid URL (e.g., https://example.com).', 'error');
+                return;
+            }
+
+            const newLink = {
+                id: Date.now(), // Simple unique ID
+                name: name,
+                url: url
+            };
+
+            links.push(newLink);
+            saveLinks(); // Save to local storage
+            renderLinks(); // Re-render the list
+            showMessage('Link added successfully!', 'success');
+
+            // Clear input fields
+            linkNameInput.value = '';
+            linkUrlInput.value = '';
+            linkNameInput.focus(); // Focus on the name input for next entry
+        }
+
+        /**
+         * Deletes a link from the list by its ID.
+         * @param {number} id - The ID of the link to delete.
+         */
+        function deleteLink(id) {
+            links = links.filter(link => link.id !== id);
+            saveLinks(); // Save updated list
+            renderLinks(); // Re-render the list
+            showMessage('Link deleted.', 'info');
+        }
+
+        // Event listener for the Add Link button
+        addLinkBtn.addEventListener('click', addLink);
+
+        // Allow pressing Enter key to add link in input fields
+        linkNameInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                addLink();
+            }
+        });
+        linkUrlInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                addLink();
             }
         });
 
-        // Event listener for Next button
-        nextBtn.addEventListener('click', () => {
-            if (currentChapterIndex < chapters.length - 1) {
-                currentChapterIndex++;
-                showChapter(currentChapterIndex);
-            }
-        });
 
-        // Initial load: show the first chapter
-        window.onload = () => {
-            showChapter(currentChapterIndex);
-        };
+        // Initial load and render when the page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            loadLinks();
+            renderLinks();
+        });
     </script>
-
-
-</body></html>
+</body>
+</html>
